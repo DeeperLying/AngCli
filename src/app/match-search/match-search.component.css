@@ -5,7 +5,12 @@
 
 #search .block input{
   height: 40px;
-  border-right: 5px;
+  border-radius: 5px;
   background: white url("../../assets/images/search_icon_search.png") no-repeat;
+  background-position: 13px center;
+  background-size: 6%;
   border: none;
+  width: 100%;
+  text-indent: 40px;
+  font-size: 14px;
 }

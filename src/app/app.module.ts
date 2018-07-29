@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MatchSearchComponent } from './match-search/match-search.component';
+import { AppRoutingModule } from './app-rouring.module';
 
 /* UI */
 
@@ -13,6 +14,7 @@ import { MatchSearchComponent } from './match-search/match-search.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
