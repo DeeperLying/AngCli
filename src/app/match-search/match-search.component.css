@@ -1,0 +1,11 @@
+#search .block{
+  background-color: #dee1e6;
+  padding: 15px;
+}
+
+#search .block input{
+  height: 40px;
+  border-right: 5px;
+  background: white url("../../assets/images/search_icon_search.png") no-repeat;
+  border: none;
+}
