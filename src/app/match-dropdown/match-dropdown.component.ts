@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilteredList } from '../hero';
 
 @Component({
   selector: 'app-match-dropdown',
@@ -6,17 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./match-dropdown.component.css']
 })
 export class MatchDropdownComponent implements OnInit {
-
-  constructor() {}
-  private add: string;
-  ngOnInit() {
-     const num = this.getListType();
-     this.add = num;
-     console.log(typeof this.add);
+  constructor() {
+    const validStrings = new FilteredList<string>('true');
+    console.log(validStrings);
   }
-
-  public getListType(): string {
-    return 'yyyid';
-  }
-
+  private add: {
+    name: string,
+    age: number
+  };
+  ngOnInit() {}
 }
