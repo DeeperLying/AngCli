@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MatchSearchComponent } from './match-search/match-search.component';
 import { AppRoutingModule } from './app-rouring.module';
 import { MatchDropdownComponent } from './match-dropdown/match-dropdown.component';
+import { MatchListTypeComponent } from './match-list-type/match-list-type.component';
 
 /* UI */
 
@@ -12,7 +13,8 @@ import { MatchDropdownComponent } from './match-dropdown/match-dropdown.componen
   declarations: [
     AppComponent,
     MatchSearchComponent,
-    MatchDropdownComponent
+    MatchDropdownComponent,
+    MatchListTypeComponent
   ],
   imports: [
     BrowserModule,

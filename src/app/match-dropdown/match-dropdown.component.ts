@@ -7,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchDropdownComponent implements OnInit {
 
-  constructor() { }
-
+  constructor() {}
+  private add: string;
   ngOnInit() {
+     const num = this.getListType();
+     this.add = num;
+     console.log(typeof this.add);
+  }
 
+  public getListType(): string {
+    return 'yyyid';
   }
 
 }
