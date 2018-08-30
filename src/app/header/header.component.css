@@ -1,0 +1,30 @@
+#header{
+  display: flex;
+  height: 2.4rem;
+  background-color: #363636;
+  align-items: center;
+}
+
+#header .position{
+  min-width: 80px;
+  max-width: 120px;
+  color: #C4C4C4;
+  text-align: center;
+}
+
+#header .e-mail{
+  min-width: 80px;
+  max-width: 120px;
+  text-align: center;
+  height: 1rem;
+}
+
+#header .e-mail img{
+  vertical-align: top;
+  height: 1rem;
+}
+
+#header .search{
+  flex: 1;
+  padding: 0.8rem;
+}
