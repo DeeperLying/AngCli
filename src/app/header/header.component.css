@@ -1,7 +1,7 @@
 #header{
   display: flex;
   height: 2.4rem;
-  background-color: #363636;
+  background-color: rgb(25, 25, 25);
   align-items: center;
 }
 
@@ -10,6 +10,10 @@
   max-width: 120px;
   color: #C4C4C4;
   text-align: center;
+}
+
+#header .position span{
+  font-size: 0.8rem;
 }
 
 #header .e-mail{
@@ -26,5 +30,33 @@
 
 #header .search{
   flex: 1;
-  padding: 0.8rem;
+  height: 100%;
+  padding: 0.5rem 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
