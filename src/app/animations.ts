@@ -9,17 +9,17 @@ export const slideInDownAnimation =
         transform: 'translateX(0)'
       })
     ),
-    transition(':enter', [
+    transition(':enter', [ // 入场动画
       style({
         opacity: 0,
-        transform: 'translateX(-100%)'
+        transform: 'translateX(100%)'
       }),
       animate('0.2s ease-in')
     ]),
-    transition(':leave', [
-      animate('0.5s ease-out', style({
+    transition(':leave', [ // 出场动画
+      animate('0.2s ease-out', style({
         opacity: 0,
-        transform: 'translateY(100%)'
+        transform: 'translateY(-30%)'
       }))
     ])
   ] );
