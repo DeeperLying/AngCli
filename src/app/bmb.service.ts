@@ -18,7 +18,6 @@ export class BmbService {
   getDatas( api: string, param: any ): Observable<any> {
     const url = this.util.urlMontage( api, param );
     return this.http.get( url ).pipe(
-      tap( rej => console.log( rej ) ),
       catchError(err =>  err )
     );
   }

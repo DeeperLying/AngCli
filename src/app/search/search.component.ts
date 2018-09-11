@@ -3,6 +3,8 @@ import { slideInDownAnimation } from '../animations';
 
 import { Observable } from 'rxjs';
 import { BmbService } from '../bmb.service';
+import {templateJitUrl} from '@angular/compiler';
+import {debounceTime} from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-search',
@@ -15,7 +17,7 @@ export class SearchComponent implements OnInit {
   @HostBinding('style.display')   display = 'block';
   @HostBinding('style.position')  position = 'absolute';
   public selectTab = 'all';
-  public searchContent = '实时事件';
+  public searchContent = '';
   constructor(
     private service: BmbService
   ) { }
@@ -27,13 +29,17 @@ export class SearchComponent implements OnInit {
   }
 
   public search( ): void {
+    debounceTime(500);
     const param = {
       keyword: this.searchContent,
       status: 3,
       pageSize: 20,
       pageNum: 1
     };
-    this.service.getDatas( 'GetBMMatchListByKeyword', param ).subscribe();
+    this.service.getDatas( 'GetBMMatchListByKeyword', param ).subscribe(
+      data => console.log( data ),
+      error => console.log('error'),
+    );
   }
 
 }
