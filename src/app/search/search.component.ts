@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   @HostBinding('style.display')   display = 'block';
   @HostBinding('style.position')  position = 'absolute';
   public selectTab = 'all';
+  public searchContent = '实时事件';
   constructor() { }
 
   ngOnInit() {}
@@ -20,6 +21,8 @@ export class SearchComponent implements OnInit {
     this.selectTab = only;
   }
 
-  public search(): void {}
+  public search(): void {
+    console.log(this.searchContent);
+  }
 
 }
