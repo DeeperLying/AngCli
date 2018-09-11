@@ -1,5 +1,22 @@
 <div id="search" >
   <div class="block" >
-    <input type="text" placeholder="搜你所想">
+    <input type="text" placeholder="搜你所想" (change)="search()" >
+    <div>搜索</div>
+  </div>
+  <div class="tab" >
+    <ul>
+      <li (click)="selectTabEvent('all')" >
+        <span [class.active]="selectTab == 'all'" >全部</span>
+      </li>
+      <li (click)="selectTabEvent('matches')" >
+        <span [class.active]="selectTab == 'matches'" >赛事</span>
+      </li>
+      <li (click)="selectTabEvent('live')" >
+        <span [class.active]="selectTab == 'live'" >直播</span>
+      </li>
+      <li (click)="selectTabEvent('team')" >
+        <span [class.active]="selectTab == 'team'" >球队</span>
+      </li>
+    </ul>
   </div>
 </div>

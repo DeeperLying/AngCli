@@ -48,7 +48,7 @@
   height: 100%;
   border-color: transparent;
   border-radius: 3px;
-  background-color: rgba(48, 48, 48);
+  background-color: rgb(48, 48, 48);
   font-size: 0.7rem;
   padding-left: 0.5rem;
   -webkit-transition: padding-left 0.3s ease;
