@@ -1,6 +1,9 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { slideInDownAnimation } from '../animations';
 
+import { Observable } from 'rxjs';
+import { BmbService } from '../bmb.service';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -13,7 +16,9 @@ export class SearchComponent implements OnInit {
   @HostBinding('style.position')  position = 'absolute';
   public selectTab = 'all';
   public searchContent = '实时事件';
-  constructor() { }
+  constructor(
+    private service: BmbService
+  ) { }
 
   ngOnInit() {}
 
@@ -21,8 +26,14 @@ export class SearchComponent implements OnInit {
     this.selectTab = only;
   }
 
-  public search(): void {
-    console.log(this.searchContent);
+  public search( ): void {
+    const param = {
+      keyword: this.searchContent,
+      status: 3,
+      pageSize: 20,
+      pageNum: 1
+    };
+    this.service.getDatas( 'GetBMMatchListByKeyword', param ).subscribe();
   }
 
 }
