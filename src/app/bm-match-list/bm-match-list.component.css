@@ -1,0 +1,45 @@
+#bm-match-list .item{
+  background-color: #FFFFFF;
+  border-top: 1px solid #F2F2F2;
+  border-bottom: 1px solid #F2F2F2;
+  padding: 0.5rem 0.5rem;
+}
+
+#bm-match-list .item-main{
+  display: flex;
+  height: 4rem;
+}
+
+#bm-match-list .item-main > img{
+  height: 100%;
+  padding-right: 0.5rem;
+}
+
+#bm-match-list .item-main .item-content{
+  flex: 1;
+  font-size: 0.7rem;
+  color: #9B9B9B;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#bm-match-list .item h4{
+  margin: 0;
+  padding-bottom: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+#bm-match-list .item-main .item-content > div{
+  padding-bottom: 0.3rem;
+}
+
+#bm-match-list .item-main .item-content > div span{
+  padding: 0 0.2rem;
+  letter-spacing: 0.04rem;
+}
+
+#bm-match-list .item-main .item-content > div:first-child span:last-child{
+  letter-spacing: 0.06rem;
+}
