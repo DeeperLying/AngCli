@@ -40,10 +40,10 @@ export class SearchComponent implements OnInit {
     };
     this.service.getDatas( 'GetBMMatchListByKeyword', param ).subscribe(
       data => {
-        if ( data.error ) {
-          console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
-        }
-        this.matchList = data.messages.data.otherMatchList;
+          if ( data.error ) {
+            console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
+          }
+          this.matchList = data.messages.data.otherMatchList;
         },
       error => console.log('error'),
       ( ) => console.log( this.matchList )

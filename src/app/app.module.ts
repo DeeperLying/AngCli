@@ -12,13 +12,17 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BmMatchComponent } from './bm-match/bm-match.component';
+import { BmMatchListComponent } from './bm-match-list/bm-match-list.component';
+import { BmMatchLiveComponent } from './bm-match-live/bm-match-live.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    BmMatchComponent
+    BmMatchComponent,
+    BmMatchListComponent,
+    BmMatchLiveComponent
   ],
   imports: [
     BrowserModule,
