@@ -1,9 +1,11 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { slideInDownAnimation } from '../animations';
 
-import { Observable } from 'rxjs';
+import { Observable, fromEvent } from 'rxjs';
 import { BmbService } from '../bmb.service';
-import {templateJitUrl} from '@angular/compiler';
+import { templateJitUrl } from '@angular/compiler';
+import { ajax } from 'rxjs/internal/observable/dom/ajax';
+import {map, filter, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/internal/operators';
 
 
 @Component({
@@ -18,6 +20,7 @@ export class SearchComponent implements OnInit {
   @HostBinding('style.position')  position = 'absolute';
   public selectTab = 'all';
   public searchContent = '';
+  public matchList: object;
   constructor(
     private service: BmbService
   ) { }
@@ -29,7 +32,6 @@ export class SearchComponent implements OnInit {
   }
 
   public search( ): void {
-    // debounceTime(5000);
     const param = {
       keyword: this.searchContent,
       status: 3,
@@ -37,9 +39,14 @@ export class SearchComponent implements OnInit {
       pageNum: 1
     };
     this.service.getDatas( 'GetBMMatchListByKeyword', param ).subscribe(
-      data => console.log( data ),
+      data => {
+        if ( data.error ) {
+          console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
+        }
+        this.matchList = data.messages.data.otherMatchList;
+        },
       error => console.log('error'),
-      () => console.log('成功')
+      ( ) => console.log( this.matchList )
     );
   }
 

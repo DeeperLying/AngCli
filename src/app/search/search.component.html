@@ -1,6 +1,6 @@
 <div id="search" >
   <div class="block" >
-    <input type="text" [(ngModel)]="searchContent" (ngModelChange)="search()" placeholder="搜你所想" >
+    <input type="text" id="searchInput" [(ngModel)]="searchContent" (ngModelChange)="search()" placeholder="搜你所想" > <!-- (ngModelChange)="search()" -->
     <div (click)="search()" >搜索</div>
   </div>
   <div class="tab" >
