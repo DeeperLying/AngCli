@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe, PipeTransform } from '@angular/core';
 import {variable} from '@angular/compiler/src/output/output_ast';
 
 @NgModule({
@@ -23,3 +23,4 @@ export class GetAppUtil {
     return this.paramJoin;
   }
 }
+

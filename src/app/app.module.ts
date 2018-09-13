@@ -7,6 +7,8 @@ import { GetAppUtil } from './app.util';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ImgFile } from './bm-pipe';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
@@ -22,7 +24,8 @@ import { BmMatchLiveComponent } from './bm-match-live/bm-match-live.component';
     SearchComponent,
     BmMatchComponent,
     BmMatchListComponent,
-    BmMatchLiveComponent
+    BmMatchLiveComponent,
+    ImgFile
   ],
   imports: [
     BrowserModule,

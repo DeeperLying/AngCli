@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import { slideInDownAnimation } from '../animations';
 
 import { Observable, fromEvent } from 'rxjs';
