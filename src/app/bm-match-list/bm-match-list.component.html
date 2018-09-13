@@ -2,14 +2,14 @@
   <div class="item" *ngFor="let item of item" >
     <h4>{{item.chineseName || ''}}</h4>
     <div class="item-main" >
-      <img [src]="item.icon | ImgFile" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536756102153&di=f12bea7084b175ba73f1fd66b8df545a&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F18d8bc3eb13533fa6c3719cdaad3fd1f40345b54.jpg" alt="">
+      <img [src]="item.icon | ImgFile:'/w/140/h/140'" alt="">
       <div class="item-content" >
         <div>
           <span>{{item.city.name}}{{item.district && item.district.name || ''}}</span>
           <span>{{item.beginDate | date:'M/d'}} — {{item.endDate | date:'M/d'}}</span>
         </div>
         <div>
-          <span>{{item.stateDesc || ''}}</span>
+          <span [style.color]="item | LiveStateStyle:'color'" >{{item | LiveStateStyle:'content'}}</span>
           <span>{{item.sportType || ''}}</span>
           <span>{{item.gameType  || ''}}</span>
         </div>
