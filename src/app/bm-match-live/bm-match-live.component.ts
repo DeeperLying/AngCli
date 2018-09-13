@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bm-match-live',
@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bm-match-live.component.css']
 })
 export class BmMatchLiveComponent implements OnInit {
-
+  private matchLive;
+  @Input() set item ( item ) {
+    this.matchLive = item;
+  }
+  get item ( ) {
+    return this.matchLive;
+  }
   constructor() { }
 
   ngOnInit() {

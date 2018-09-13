@@ -32,3 +32,24 @@
 #bm-match-live .item div:nth-child(2) span{
   display: block;
 }
+
+#bm-match-live .item div:nth-child(2) i{
+  color: #292A2F;
+}
+
+#bm-match-live .teamHead img{
+  width: 70%;
+  vertical-align: top;
+  border-radius: 50px;
+}
+
+#bm-match-live .teamHead img+span{
+  width: 90%;
+  display: block;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin: 0 auto;
+  color: #464646;
+  font-size: 0.7rem;
+}

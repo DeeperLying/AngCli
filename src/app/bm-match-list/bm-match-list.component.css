@@ -13,6 +13,7 @@
 #bm-match-list .item-main > img{
   height: 100%;
   padding-right: 0.5rem;
+  border-radius: 50px;
 }
 
 #bm-match-list .item-main .item-content{

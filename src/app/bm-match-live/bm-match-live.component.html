@@ -1,18 +1,18 @@
 <div id="bm-match-live" >
-  <div class="item" >
-    <div>
-      <img src="" alt="">
-      <span>BMB互动</span>
+  <div class="item" *ngFor="let item of item" >
+    <div class="teamHead" >
+      <img [src]="item.homeTeamBadge | ImgFile:'/w/170/h/170'">
+      <span>{{item.homeTeamName}}</span>
     </div>
     <div>
-      <p>护航丰富启航篮球友谊赛</p>
-      <p>2018.8.22 18:30</p>
+      <p>{{item.matchName}}</p>
+      <p>{{item.beginDate | date:'y.M.d h:mm'}}</p>
       <i>—</i>
-      <span>即将直播</span>
+      <span>{{item.liveStatus.statusLabel}}</span>
     </div>
-    <div>
-      <img src="" alt="">
-      <span>BMB互动</span>
+    <div class="teamHead" >
+      <img [src]="item.awayTeamBadge | ImgFile:'/w/170/h/170'" >
+      <span>{{item.awayTeamName}}</span>
     </div>
   </div>
 </div>

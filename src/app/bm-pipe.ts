@@ -3,6 +3,10 @@ import {  Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'ImgFile'})
 export class ImgFile implements PipeTransform {
   transform( value, area ): string {
+    const strLength = value.indexOf( 'http' );
+    if ( strLength > -1 ) {
+      return value;
+    }
     if ( !value || !area ) {
       return 'assets/images/banmabang.png';
     }
