@@ -2,12 +2,12 @@
   background-color: #FFFFFF;
   border-top: 1px solid #F2F2F2;
   border-bottom: 1px solid #F2F2F2;
-  padding: 0.5rem 0.5rem;
+  padding: 0.3rem 0.5rem;
 }
 
 #bm-match-list .item-main{
   display: flex;
-  height: 4rem;
+  height: 3.5rem;
 }
 
 #bm-match-list .item-main > img{
@@ -27,7 +27,6 @@
 
 #bm-match-list .item h4{
   margin: 0;
-  padding-bottom: 0.5rem;
   font-size: 0.8rem;
   font-weight: normal;
   color: #464646;

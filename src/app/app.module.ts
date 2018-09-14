@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BmMatchComponent } from './bm-match/bm-match.component';
 import { BmMatchListComponent } from './bm-match-list/bm-match-list.component';
 import { BmMatchLiveComponent } from './bm-match-live/bm-match-live.component';
+import { BmMatchTeamComponent } from './bm-match-team/bm-match-team.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BmMatchLiveComponent } from './bm-match-live/bm-match-live.component';
     BmMatchListComponent,
     BmMatchLiveComponent,
     ImgFile,
-    LiveStateStyle
+    LiveStateStyle,
+    BmMatchTeamComponent
   ],
   imports: [
     BrowserModule,

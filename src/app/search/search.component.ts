@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
   public searchContent = '';
   public matchList: object[];
   public matchLive: object[];
-  public unsubscribe;
+  public matchTeam: object[];
   constructor(
     private service: BmbService
   ) { }
@@ -60,7 +60,7 @@ export class SearchComponent implements OnInit {
       error => console.log('error'),
       ( ) => {}
     );
-    this.unsubscribe = this.service.getDatas( 'GetBMLiveGames', paramMatchLive ).subscribe(
+    this.service.getDatas( 'GetBMLiveGames', paramMatchLive ).subscribe(
       data => {
         if ( data.error ) {
           console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
@@ -68,7 +68,18 @@ export class SearchComponent implements OnInit {
         this.matchLive = data.messages.data.games.slice(0, 3 );
       },
       error => console.log('error'),
-      ( ) => console.log( this.matchLive ),
+      ( ) => {},
+    );
+    this.service.getDatas('SearchBMTeam', paramMatchLive ).subscribe(
+      data => {
+        console.log( data );
+        if ( data.error ) {
+          console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
+        }
+        this.matchTeam = data.messages.data.teams.slice(0, 3 );
+      },
+      error => console.log( 'error' ),
+      ( ) => console.log( this.matchTeam )
     );
   }
 
