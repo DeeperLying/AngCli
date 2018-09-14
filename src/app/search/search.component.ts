@@ -20,8 +20,9 @@ export class SearchComponent implements OnInit {
   @HostBinding('style.position')  position = 'absolute';
   public selectTab = 'all';
   public searchContent = '';
-  public matchList: object;
-  public matchLive: object;
+  public matchList: object[];
+  public matchLive: object[];
+  public unsubscribe;
   constructor(
     private service: BmbService
   ) { }
@@ -44,6 +45,11 @@ export class SearchComponent implements OnInit {
       pageSize: 20,
       pageNum: 1,
     };
+    const paramTeamName = {
+      keyword: this.searchContent,
+      pageSize: 20,
+      pageNum: 1,
+    };
     this.service.getDatas( 'GetBMMatchListByKeyword', paramMatchList ).subscribe(
       data => {
           if ( data.error ) {
@@ -54,7 +60,7 @@ export class SearchComponent implements OnInit {
       error => console.log('error'),
       ( ) => {}
     );
-    this.service.getDatas( 'GetBMLiveGames', paramMatchLive ).subscribe(
+    this.unsubscribe = this.service.getDatas( 'GetBMLiveGames', paramMatchLive ).subscribe(
       data => {
         if ( data.error ) {
           console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
@@ -62,7 +68,7 @@ export class SearchComponent implements OnInit {
         this.matchLive = data.messages.data.games.slice(0, 3 );
       },
       error => console.log('error'),
-      ( ) => console.log( this.matchLive )
+      ( ) => console.log( this.matchLive ),
     );
   }
 

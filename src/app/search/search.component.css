@@ -39,6 +39,10 @@
   display: block;
 }
 
+#search .tab{
+  margin-bottom: 0.5rem;
+}
+
 #search .tab ul{
   display: flex;
 }
@@ -57,3 +61,37 @@
   padding-bottom: 0.3rem;
   border-bottom: 2px solid #CF2F30;
 }
+
+#search .bmb-title{
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding:0 0.8rem;
+  display: flex;
+  background-color: white;
+}
+
+#search .bmb-title b,
+#search .bmb-title span{
+  flex: 1;
+}
+
+#search .bmb-title b{
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: #191919;
+}
+
+#search .bmb-title span{
+  color: #9B9B9B;
+  font-size: 0.7rem;
+  text-align: right;
+}
+
+
+
+
+
+
+
+
+

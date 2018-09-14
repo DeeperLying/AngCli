@@ -22,6 +22,18 @@ export class LiveStateStyle implements PipeTransform {
       color: '',
       label: ''
     };
+
+    if ( game.status === 1 ) {
+      ret.color = '#38906B';
+      ret.label = game.statusLabel;
+    } else if ( game.status === 2 ) {
+      ret.color = '#38906B';
+      ret.label = game.statusLabel;
+    } else if ( game.status === 3 ) {
+      ret.color = '#CF2F30';
+      ret.label = game.statusLabel;
+    }
+
     if ( game.state === 1 ) {
       ret.color = '#38906B';
       ret.label = '等待开赛';

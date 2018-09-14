@@ -8,7 +8,7 @@
       <p>{{item.matchName}}</p>
       <p>{{item.beginDate | date:'y.M.d h:mm'}}</p>
       <i>—</i>
-      <span>{{item.liveStatus.statusLabel}}</span>
+      <span [style.color]="item.liveStatus | LiveStateStyle:'color'" >{{item.liveStatus | LiveStateStyle:'content'}}</span>
     </div>
     <div class="teamHead" >
       <img [src]="item.awayTeamBadge | ImgFile:'/w/170/h/170'" >
