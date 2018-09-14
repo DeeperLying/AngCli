@@ -1,0 +1,32 @@
+#bmb-team .item{
+  display: flex;
+  height: 4rem;
+  padding: 0.3rem 0.5rem;
+  background-color: white;
+  border-top: 1px solid #F2F2F2;
+  border-bottom: 1px solid #F2F2F2;
+}
+
+#bmb-team .item img{
+  height: 100%;
+  margin-right: 0.4rem;
+  border-radius: 5px;
+}
+
+#bmb-team .team-main {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#bmb-team .team-main b{
+  font-weight: normal;
+  display: block;
+  padding-bottom: 0.2rem;
+}
+
+#bmb-team .team-main b+span{
+  font-size: 0.6rem;
+  color: #9B9B9B;
+}

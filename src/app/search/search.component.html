@@ -19,14 +19,31 @@
       </li>
     </ul>
   </div>
-  <div class="bmb-title" *ngIf="matchList && matchList.length > 0" >
-    <b>赛事</b>
-    <span>全部{{matchList.length}}条内容</span>
+
+  <div *ngIf="selectTab == 'all'" >
+    <div class="bmb-title" *ngIf="matchList && matchList['otherMatchList'].length > 0" >
+      <b>赛事</b>
+      <span>全部{{matchList['count']}}条内容</span>
+    </div>
+    <app-bm-match-list *ngIf="matchList" [item]="matchList['otherMatchList'].slice(0, 3)" ></app-bm-match-list>
+
+
+    <div class="bmb-title" *ngIf="matchLive && matchLive['games'].length > 0" >
+      <b>直播</b>
+      <span>全部{{matchLive['games'].length}}条内容</span>
+    </div>
+    <app-bm-match-live *ngIf="matchLive" [item]="matchLive['games'].slice(0, 3 )" ></app-bm-match-live>
+
+
+    <div class="bmb-title" *ngIf="matchTeam && matchTeam['teams'].length > 0" >
+      <b>球队</b>
+      <span>全部{{matchTeam['count']}}条内容</span>
+    </div>
+    <app-bm-match-team *ngIf="matchTeam" [team]="matchTeam['teams'].slice(0, 3 )" ></app-bm-match-team>
   </div>
-  <app-bm-match-list [item]="matchList" ></app-bm-match-list>
-  <div class="bmb-title" *ngIf="matchLive && matchLive.length > 0" >
-    <b>直播</b>
-    <span>全部{{matchLive.length}}条内容</span>
+
+  <div *ngIf="selectTab == 'matches'" class="down-scroll" >
+    <app-bm-match-list *ngIf="matchList" [item]="matchAllList" ></app-bm-match-list>
   </div>
-  <app-bm-match-live [item]="matchLive" ></app-bm-match-live>
+  
 </div>

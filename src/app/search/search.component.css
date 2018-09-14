@@ -39,10 +39,6 @@
   display: block;
 }
 
-#search .tab{
-  margin-bottom: 0.5rem;
-}
-
 #search .tab ul{
   display: flex;
 }
@@ -68,6 +64,7 @@
   padding:0 0.8rem;
   display: flex;
   background-color: white;
+  margin-top: 0.5rem;
 }
 
 #search .bmb-title b,
@@ -87,11 +84,17 @@
   text-align: right;
 }
 
+#search .down-scroll{
+  height: calc( 100% - 5rem );
+}
 
+#search .content{
+  top: 5.7rem;
+  height: 500px;
+}
 
-
-
-
-
+#search .content .list-block{
+  margin-top: 0;
+}
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bm-match-team',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bm-match-team.component.css']
 })
 export class BmMatchTeamComponent implements OnInit {
-
+  @Input( ) team;
   constructor() { }
 
   ngOnInit() {

@@ -5,8 +5,7 @@ import { Observable, fromEvent } from 'rxjs';
 import { BmbService } from '../bmb.service';
 import { templateJitUrl } from '@angular/compiler';
 import { ajax } from 'rxjs/internal/observable/dom/ajax';
-import {map, filter, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/internal/operators';
-
+import { map, filter, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-search',
@@ -16,24 +15,30 @@ import {map, filter, debounceTime, distinctUntilChanged, switchMap, tap} from 'r
 })
 export class SearchComponent implements OnInit {
   @HostBinding('@routeAnimation') routeAnimation = true;
-  @HostBinding('style.display')   display = 'block';
-  @HostBinding('style.position')  position = 'absolute';
+  @HostBinding('style.display') display = 'block';
+  @HostBinding('style.position') position = 'absolute';
   public selectTab = 'all';
   public searchContent = '';
   public matchList: object[];
+  public matchAllList: object[];
   public matchLive: object[];
   public matchTeam: object[];
+  private loading = false;
+
   constructor(
     private service: BmbService
-  ) { }
+  ) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.infiniteScroll();
+  }
 
-  public selectTabEvent( only: string ): void {
+  public selectTabEvent(only: string): void {
     this.selectTab = only;
   }
 
-  public search( ): void {
+  public search(): void {
     const paramMatchList = {
       keyword: this.searchContent,
       status: 3,
@@ -42,45 +47,43 @@ export class SearchComponent implements OnInit {
     };
     const paramMatchLive = {
       keyword: this.searchContent,
-      pageSize: 20,
-      pageNum: 1,
     };
-    const paramTeamName = {
-      keyword: this.searchContent,
-      pageSize: 20,
-      pageNum: 1,
-    };
-    this.service.getDatas( 'GetBMMatchListByKeyword', paramMatchList ).subscribe(
+    this.service.getDatas('GetBMMatchListByKeyword', paramMatchList).subscribe(
       data => {
-          if ( data.error ) {
-            console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
-          }
-          this.matchList = data.messages.data.otherMatchList.slice(0, 3 );
-        },
-      error => console.log('error'),
-      ( ) => {}
-    );
-    this.service.getDatas( 'GetBMLiveGames', paramMatchLive ).subscribe(
-      data => {
-        if ( data.error ) {
+        if (data.error) {
           console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
         }
-        this.matchLive = data.messages.data.games.slice(0, 3 );
+        this.matchAllList = data.messages.data.otherMatchList;
+        this.matchList = data.messages.data;
       },
       error => console.log('error'),
-      ( ) => {},
+      () => {
+      }
     );
-    this.service.getDatas('SearchBMTeam', paramMatchLive ).subscribe(
+    this.service.getDatas('GetBMLiveGames', paramMatchLive).subscribe(
       data => {
-        console.log( data );
-        if ( data.error ) {
+        if (data.error) {
           console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
         }
-        this.matchTeam = data.messages.data.teams.slice(0, 3 );
+        this.matchLive = data.messages.data;
       },
-      error => console.log( 'error' ),
-      ( ) => console.log( this.matchTeam )
+      error => console.log('error'),
+      () => {
+      },
+    );
+    this.service.getDatas('SearchBMTeam', paramMatchLive).subscribe(
+      data => {
+        if (data.error) {
+          console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
+        }
+        this.matchTeam = data.messages.data;
+      },
+      error => console.log('error'),
+      () => {
+      }
     );
   }
 
+  private infiniteScroll(): void {
+  }
 }

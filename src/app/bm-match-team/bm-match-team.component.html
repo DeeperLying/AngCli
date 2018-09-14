@@ -1,11 +1,11 @@
 <div id="bmb-team" >
-  <div>
-    <img src="" alt="">
+  <div class="item" *ngFor="let item of team" >
+    <img [src]="item.badge | ImgFile:'/w/134/h/134'" >
     <div class="team-main" >
       <b>
-        BMB HUIDONG
+        {{item.name}}
       </b>
-      <span>贵阳 多少多少</span>
+      <span>{{item.location}}</span>
     </div>
   </div>
 </div>
