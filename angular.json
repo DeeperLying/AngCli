@@ -27,12 +27,14 @@
               "node_modules/light7/dist/css/light7.css",
               "node_modules/light7/dist/css/light7-swiper.css",
               "node_modules/light7/dist/css/light7-swipeout.css",
+              "node_modules/mescroll.js/mescroll.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/light7/dist/js/light7.js",
               "node_modules/light7/dist/js/light7-swiper.js",
               "node_modules/light7/dist/js/light7-swipeout.js",
+              "node_modules/mescroll.js/mescroll.min.js"
             ]
           },
           "configurations": {
