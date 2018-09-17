@@ -6,6 +6,7 @@ import { BmbService } from '../bmb.service';
 import { templateJitUrl } from '@angular/compiler';
 import { ajax } from 'rxjs/internal/observable/dom/ajax';
 import { map, filter, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/internal/operators';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-search',
@@ -24,7 +25,6 @@ export class SearchComponent implements OnInit {
   public matchLive: object[];
   public matchTeam: object[];
   private loading = false;
-
   constructor(
     private service: BmbService
   ) {
@@ -85,5 +85,15 @@ export class SearchComponent implements OnInit {
   }
 
   private infiniteScroll(): void {
+    console.log($(document));
   }
+
+  private downCallback () {
+    console.log('上啦刷新');
+  }
+
+  private upCallback () {
+    console.log('下拉刷新');
+  }
+
 }

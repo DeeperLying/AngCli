@@ -37,7 +37,7 @@ import { BmMatchTeamComponent } from './bm-match-team/bm-match-team.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    GetAppUtil
+    GetAppUtil,
   ],
   providers: [],
   bootstrap: [AppComponent]

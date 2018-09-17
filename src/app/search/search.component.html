@@ -42,7 +42,7 @@
     <app-bm-match-team *ngIf="matchTeam" [team]="matchTeam['teams'].slice(0, 3 )" ></app-bm-match-team>
   </div>
 
-  <div *ngIf="selectTab == 'matches'" class="down-scroll" >
+  <div *ngIf="selectTab == 'matches'" id="mescroll" class="mescroll" style="height: 600px" >
     <app-bm-match-list *ngIf="matchList" [item]="matchAllList" ></app-bm-match-list>
   </div>
 

@@ -84,17 +84,6 @@
   text-align: right;
 }
 
-#search .down-scroll{
-  height: calc( 100% - 5rem );
-}
 
-#search .content{
-  top: 5.7rem;
-  height: 500px;
-}
-
-#search .content .list-block{
-  margin-top: 0;
-}
 
 

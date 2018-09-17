@@ -23,4 +23,3 @@ export class GetAppUtil {
     return this.paramJoin;
   }
 }
-
