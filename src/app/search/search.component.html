@@ -46,7 +46,7 @@
     <app-bm-match-list *ngIf="matchList" [item]="matchAllList" ></app-bm-match-list>
   </div>-->
 
-  <div [hidden]="selectTab != 'matches'" id="mescroll" class="mescroll" style="height: 500px;"  >
+  <div [hidden]="selectTab != 'matches'" id="mescroll" class="mescroll" >
     <div class="match-list" >
       <app-bm-match-list *ngIf="matchAllList" [item]="matchAllList" ></app-bm-match-list>
     </div>

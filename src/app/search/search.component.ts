@@ -38,8 +38,6 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.winHeigth = document.body.clientHeight;
-
     this.infiniteScroll();
   }
 
