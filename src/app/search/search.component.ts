@@ -25,7 +25,9 @@ export class SearchComponent implements OnInit {
   public matchList: object[];
   public matchAllList: object[];
   public matchLive: object[];
+  public matchAllLive: object[];
   public matchTeam: object[];
+  public matchAllTeam: object[];
   private loading = false;
   private mescroll;
   private pageSize = 20;
@@ -50,7 +52,7 @@ export class SearchComponent implements OnInit {
       keyword: this.searchContent,
       status: this.status,
       pageSize: this.pageSize,
-      pageNum: this.pageNum
+      pageNum: 1
     };
     const paramMatchLive = {
       keyword: this.searchContent,
@@ -65,6 +67,7 @@ export class SearchComponent implements OnInit {
       },
       error => console.log('error'),
       () => {
+        this.mescroll.triggerUpScroll();
       }
     );
     this.service.getDatas('GetBMLiveGames', paramMatchLive).subscribe(
@@ -72,6 +75,7 @@ export class SearchComponent implements OnInit {
         if (data.error) {
           console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
         }
+        this.matchAllLive = data.messages.data.games;
         this.matchLive = data.messages.data;
       },
       error => console.log('error'),
@@ -83,6 +87,7 @@ export class SearchComponent implements OnInit {
         if (data.error) {
           console.log(' 您搜索关键字有误或者不合法,我这里到时候回封装一个方法专门针对错误提醒');
         }
+        this.matchAllTeam = data.messages.data.teams;
         this.matchTeam = data.messages.data;
       },
       error => console.log('error'),
@@ -95,44 +100,77 @@ export class SearchComponent implements OnInit {
     this.mescroll = new Mescroll('mescroll', {
       down: {
         callback: () => {
-          console.log('下啦');
           const time = setInterval( () => {
             clearInterval(time);
             this.mescroll.endSuccess();
+            this.search();
           }, 3000 );
         }
       },
       up: {
-        auto: true,
+        auto: false,
         isBounce: false,
         callback: () => {
-          console.log('上啦');
-          if ( !this.matchAllList ) {
-            return;
-          }
+          let apis = 'GetBMMatchListByKeyword';
           const paramMatchList = {
             keyword: this.searchContent,
             status: this.status,
             pageSize: 20,
             pageNum: ++this.pageNum
           };
-          this.service.getDatas('GetBMMatchListByKeyword', paramMatchList).subscribe(
+          if ( this.selectTab === 'live' ) {
+            apis = 'GetBMLiveGames';
+          } else if ( this.selectTab === 'team' ) {
+            apis = 'SearchBMTeam';
+          }
+          this.service.getDatas(apis, paramMatchList).subscribe(
             res => {
-              const vm = this;
-              const data = res.messages.data.otherMatchList;
-              data.forEach(function ( arr ) {
-                vm.matchAllList.push( arr );
-              });
-              console.log(res)
-              this.mescroll.endBySize(this.matchAllList.length, res.messages.data.count);
+              if ( this.selectTab === 'matches' ) {
+                const vm = this;
+                const data = res.messages.data.otherMatchList;
+                if ( vm.matchAllList ) {
+                  data.forEach(function ( arr ) {
+                    vm.matchAllList.push( arr );
+                  });
+                } else {
+                  vm.matchAllList = data;
+                }
+                this.mescroll.endBySize(this.matchAllList.length, res.messages.data.count);
+              } else if ( this.selectTab === 'live' ) {
+                const vm = this;
+                const data = res.messages.data.games;
+                if ( vm.matchAllLive ) {
+                  data.forEach(function ( arr ) {
+                    vm.matchAllLive.push( arr );
+                  });
+                } else {
+                  vm.matchAllLive = data;
+                }
+                console.log(vm.matchAllLive);
+                this.mescroll.endBySize(this.matchAllLive.length, res.messages.data.count);
+              } else if ( this.selectTab === 'team' ) {
+                const vm = this;
+                const data = res.messages.data.teams;
+                if ( vm.matchAllTeam ) {
+                  data.forEach(function ( arr ) {
+                    vm.matchAllTeam.push( arr );
+                  });
+                } else {
+                  vm.matchAllTeam = data;
+                }
+                this.mescroll.endBySize(this.matchAllTeam.length, res.messages.data.count);
+              }
             },
             error => console.log( error ),
-            ( ) => {
-              console.log( '成功' );
-            }
+            ( ) => {}
           );
         }
       }
     });
   }
+
+  private dataList( res: any ) {
+    console.log(res);
+  }
+
 }

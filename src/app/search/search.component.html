@@ -42,13 +42,15 @@
     <app-bm-match-team *ngIf="matchTeam" [team]="matchTeam['teams'].slice(0, 3 )" ></app-bm-match-team>
   </div>
 
-  <!--<div *ngIf="selectTab == 'matches'" id="mescroll" class="mescroll" style="height: 600px" >
-    <app-bm-match-list *ngIf="matchList" [item]="matchAllList" ></app-bm-match-list>
-  </div>-->
-
-  <div [hidden]="selectTab != 'matches'" id="mescroll" class="mescroll" >
-    <div class="match-list" >
+  <div id="mescroll" class="mescroll" [hidden]="selectTab == 'all'" >
+    <div class="match-list" [style.display]="selectTab == 'matches'?'block':'none'" >
       <app-bm-match-list *ngIf="matchAllList" [item]="matchAllList" ></app-bm-match-list>
+    </div>
+    <div class="match-list" [style.display]="selectTab == 'live'?'block':'none'" >
+      <app-bm-match-live *ngIf="matchAllLive" [item]="matchAllLive" ></app-bm-match-live>
+    </div>
+    <div class="match-list" [style.display]="selectTab == 'team'?'block':'none'" >
+      <app-bm-match-team *ngIf="matchAllTeam" [team]="matchAllTeam" ></app-bm-match-team>
     </div>
   </div>
 
