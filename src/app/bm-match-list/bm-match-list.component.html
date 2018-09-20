@@ -1,5 +1,5 @@
 <div id="bm-match-list" >
-  <div class="item" *ngFor="let item of item" >
+  <div class="item" *ngFor="let item of item"  [routerLink]="['/matcheDetail', item.id]" >
     <h4>{{item.chineseName || ''}}</h4>
     <div class="item-main" >
       <img [src]="item.icon | ImgFile:'/w/140/h/140'" alt="">

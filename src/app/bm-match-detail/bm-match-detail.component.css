@@ -1,0 +1,55 @@
+#detail .header{
+  height: 2.8rem;
+  padding:0.3rem 0.8rem;
+  background-color: black;
+}
+
+#detail .header ul{
+  display: flex;
+  height: 100%;
+}
+
+#detail .header ul li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  text-align: center;
+}
+
+#detail .header ul li:nth-child(1){
+  justify-content: left;
+}
+
+#detail .header ul img{
+  transform: scale(0.6);
+}
+
+#detail .header ul li:nth-child(1){
+  width: calc(100% - 80px);
+}
+
+#detail .selectTab ul{
+  height: 2.7rem;
+  display: flex;
+  background-color: white;
+}
+
+#detail .selectTab ul li{
+  flex: 1;
+  font-size: 0.7rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#detail .selectTab ul li img{
+  height: 20px;
+  vertical-align: top;
+}
+
+#detail .selectTab ul li span{
+  display: block;
+}
