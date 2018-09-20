@@ -19,6 +19,7 @@ import { BmMatchListComponent } from './bm-match-list/bm-match-list.component';
 import { BmMatchLiveComponent } from './bm-match-live/bm-match-live.component';
 import { BmMatchTeamComponent } from './bm-match-team/bm-match-team.component';
 import { BmMatchDetailComponent } from './bm-match-detail/bm-match-detail.component';
+import { BmMatchLoginComponent } from './bm-match-login/bm-match-login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BmMatchDetailComponent } from './bm-match-detail/bm-match-detail.compon
     ImgFile,
     LiveStateStyle,
     BmMatchTeamComponent,
-    BmMatchDetailComponent
+    BmMatchDetailComponent,
+    BmMatchLoginComponent
   ],
   imports: [
     BrowserModule,
