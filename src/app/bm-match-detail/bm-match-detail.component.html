@@ -12,8 +12,8 @@
       </li>
     </ul>
   </div>
-  <div>
-    这里是图片展示位置
+  <div class="banner" >
+    <img *ngIf="matchs" [src]="matchs.match.backgroundImage2 | ImgFile:'/w/'+ winWidth +'/h/'+ winWidth" >
   </div>
   <div class="selectTab" >
     <ul>
@@ -34,5 +34,15 @@
         <span>赛事信息</span>
       </li>
     </ul>
+  </div>
+  <div class="team-main" *ngIf="matchs" >
+    <div class="addTeam" *ngFor="let item of matchs.teamList" >
+      <img [src]="item.badge | ImgFile:'/w/110/h/110'" >
+      <div class="team-info" >
+        <b>{{item.name}}</b>
+        <span>{{item.location}}</span>
+      </div>
+      <div class="btn" >入队</div>
+    </div>
   </div>
 </div>

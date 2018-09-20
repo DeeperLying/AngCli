@@ -22,7 +22,7 @@
 }
 
 #detail .header ul img{
-  transform: scale(0.6);
+  transform: scale(0.5);
 }
 
 #detail .header ul li:nth-child(1){
@@ -52,4 +52,70 @@
 
 #detail .selectTab ul li span{
   display: block;
+}
+
+#detail .addTeam{
+  background-color: white;
+  height: 4rem;
+}
+
+#detail .team-main{
+  margin-top: 0.5rem;
+}
+
+#detail .banner img{
+ vertical-align: top;
+  width: 100%;
+}
+
+#detail .addTeam{
+  padding:0 0.8rem;
+  border-bottom: 1px solid #f0f0f0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#detail .addTeam img{
+  width: 55px;
+  margin-right: 5px;
+  border-radius: 50px;
+}
+#detail .team-info{
+  width: calc(100% - 120px);
+}
+
+#detail .team-info b{
+  display: block;
+  color: #656565;
+  font-size: 0.7rem;
+  font-weight: normal;
+  margin-bottom: 0.3rem;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+#detail .team-info span{
+  width: 100%;
+  display: block;
+  font-size: 0.6rem;
+  color: #ababab;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+#detail .btn{
+  display: block;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  text-align: center;
+  color: #cc3232;
+  align-self: right;
 }
