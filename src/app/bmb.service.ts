@@ -14,8 +14,8 @@ export class BmbService {
     private http: HttpClient,
     private util: GetAppUtil,
   ) { }
-  getDatas( api: string, param: any ): Observable<any> {
-    const url = this.util.urlMontage( api, param );
+  getDatas( api: string, param: any, passport?: boolean): Observable<any> {
+    const url = this.util.urlMontage( api, param, passport );
     return this.http.get( url ).pipe(
       debounceTime(900),
       catchError(err =>  err )

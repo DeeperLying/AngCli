@@ -1,3 +1,52 @@
-<div id="login" >
+<div id="login" [style.height]="winHeight" >
+  <div class="tab" >
+    <div (click)="modelShow='codeLogin'" [class]="modelShow=='codeLogin'?'tab-active':''" >
+      <span>验证码登录</span>
+    </div>
+    <div (click)="modelShow='pwdLogin'" [class]="modelShow=='pwdLogin'?'tab-active':''" >
+      <span>账号密码登录</span>
+    </div>
+  </div>
 
+  <div class="from" *ngIf="modelShow == 'codeLogin'" >
+    <div class="tel" >
+      <input type="tel" placeholder="请您输入手机号" >
+    </div>
+    <div class="password" >
+      <input type="text" placeholder="验证码" >
+      <span>获取验证码</span>
+    </div>
+  </div>
+
+  <div class="from" *ngIf="modelShow == 'pwdLogin'" >
+    <div class="tel" >
+      <input type="number" placeholder="请您输入手机号" >
+    </div>
+    <div class="password" >
+      <input type="password" placeholder="密码" >
+      <span class="pwdForget" >忘记密码</span>
+    </div>
+  </div>
+
+  <div class="from" *ngIf="modelShow == 'reg'" >
+    <div class="tel" >
+      <input type="tel" [(ngModel)]="phoneNumber" placeholder="请您输入手机号" >
+    </div>
+    <div class="password" >
+      <input type="text" placeholder="验证码" [(ngModel)]="smsCode" >
+      <span (click)="getIdentifyingCode()" >{{countDown}}</span>
+    </div>
+  </div>
+
+  <div class="btn" >
+   <button class="btn-login" (click)="regFast()" >{{modelShow=='reg'?'立即注册':'登录'}}</button>
+    <button (click)="modelShow=='reg'?modelShow='codeLogin':modelShow='reg'" class="btn-reg" >{{modelShow=='reg'?'已有账号登录':'立即注册'}}</button>
+  </div>
+  <div class="other-login" >
+    <b>其它方式登录</b>
+    <div class="other-login-way" >
+      <a href="javascript:void(0);">QQ</a>
+      <a href="javascript:void(0);">WX</a>
+    </div>
+  </div>
 </div>

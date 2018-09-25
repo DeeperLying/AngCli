@@ -7,11 +7,16 @@ import {variable} from '@angular/compiler/src/output/output_ast';
 
 export class GetAppUtil {
   private queryTextUrl = 'http://test.api.snsports.cn/api/content/phone/'; // GetBMMatchListByKeyword.json?pageNum=1&keyword=%E5%8D%A0&status=3&device=phone&appVersion=3.0.5
+  private queryPassportUrl = 'http://test.api.snsports.cn/api_passport/';
   private appVersion = '3.0.5';
   public paramJoin: string;
   constructor () {}
-  public urlMontage (api: string, param: any): string {
-     this.paramJoin = this.queryTextUrl + api.toString() + '.json';
+  public urlMontage (api: string, param: any, passport?: boolean): string {
+    if ( passport ) {
+      this.paramJoin = this.queryPassportUrl + api.toString() + '.json';
+    } else {
+      this.paramJoin = this.queryTextUrl + api.toString() + '.json';
+    }
     if ( !param ) {
       return;
     }
