@@ -54,7 +54,13 @@ export class BmMatchLoginComponent implements OnInit {
       loginName: this.phoneNumber,
       sendCode : this.smsCode,
     };
-    console.log( param );
+    this.server.postDatas( 'registerMobile', param ).subscribe(
+      res => console.log( res ),
+      error => console.log( error ),
+      () => {
+        console.log( '成功' );
+      }
+    );
   }
 
 }
