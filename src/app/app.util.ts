@@ -10,7 +10,9 @@ export class GetAppUtil {
   private queryPassportUrl = 'http://test.api.snsports.cn/api_passport/';
   private appVersion = '3.0.5';
   public paramJoin: string;
+
   constructor () {}
+
   public urlMontage (api: string, param: any, passport?: boolean): string {
     if ( passport ) {
       this.paramJoin = this.queryPassportUrl + api.toString() + '.json';
@@ -25,6 +27,11 @@ export class GetAppUtil {
       this.paramJoin += key + '=' + param[key] + '&';
     }
     this.paramJoin = this.paramJoin + 'device=phone&appVersion=' + this.appVersion;
+    return this.paramJoin;
+  }
+
+  public urlPostMontage ( api: string ) {
+    this.paramJoin = this.queryPassportUrl + api + '.do';
     return this.paramJoin;
   }
 }

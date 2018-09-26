@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BmbService } from '../bmb.service';
+import { HttpParams } from '@angular/common/http';
 import * as $ from 'jquery';
 
 @Component({
@@ -9,10 +10,10 @@ import * as $ from 'jquery';
 })
 export class BmMatchLoginComponent implements OnInit {
   public modelShow = 'codeLogin';
-  public phoneNumber: number;
+  public phoneNumber: string;
   public winHeight: string;
   public countDown: any = '获取验证码';
-  public smsCode: number;
+  public smsCode: string;
   constructor(
     private server: BmbService
   ) { }
@@ -48,12 +49,14 @@ export class BmMatchLoginComponent implements OnInit {
   }
 
   public regFast () {
-    const param = {
+    /*const param = {
       loginType: 'mobile',
       action   : 'fastBind',
       loginName: this.phoneNumber,
       sendCode : this.smsCode,
-    };
+    };*/
+    const loginName = this.phoneNumber;
+    const param = new HttpParams().append('loginType', 'mobile').append('action', 'fastBind').append('loginName', this.phoneNumber).append('sendCode', this.smsCode);
     this.server.postDatas( 'registerMobile', param ).subscribe(
       res => console.log( res ),
       error => console.log( error ),

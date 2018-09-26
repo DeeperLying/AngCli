@@ -5,12 +5,6 @@ import { catchError, map, tap, debounceTime } from 'rxjs/internal/operators';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { GetAppUtil } from './app.util';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json'
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -26,10 +20,8 @@ export class BmbService {
       catchError(err =>  err )
     );
   }
-  public postDatas( api: string, param: any, passport?: boolean ): Observable<any> {
-    // const url = this.util.urlMontage(api, param, passport);
-    const url = 'http://test.api.snsports.cn/api_passport/registerMobile.do';
-    const params = new HttpParams().append('loginType', 'mobile').append('action', 'fastBind').append('loginName', '12312314').append('sendCode', '1234');
-    return this.http.post( url, params);
+  public postDatas( api: string, param: any ): Observable<any> {
+    const url = this.util.urlPostMontage( api );
+    return this.http.post( url, param);
   }
 }
