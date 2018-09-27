@@ -15,9 +15,10 @@ export class BmMatchLoginComponent implements OnInit {
   public countDown: any = '获取验证码';
   public smsCode: string;
   constructor(
-    private server: BmbService
+    private server: BmbService,
   ) { }
   ngOnInit() {
+    const tiem = 2 * 60 * 60 * 1000;
     this.winHeight = document.body.clientHeight + 'px';
   }
 
@@ -49,20 +50,13 @@ export class BmMatchLoginComponent implements OnInit {
   }
 
   public regFast () {
-    /*const param = {
-      loginType: 'mobile',
-      action   : 'fastBind',
-      loginName: this.phoneNumber,
-      sendCode : this.smsCode,
-    };*/
-    const loginName = this.phoneNumber;
     const param = new HttpParams().append('loginType', 'mobile').append('action', 'fastBind').append('loginName', this.phoneNumber).append('sendCode', this.smsCode);
     this.server.postDatas( 'registerMobile', param ).subscribe(
-      res => console.log( res ),
+      res => {
+        console.log(res);
+      },
       error => console.log( error ),
-      () => {
-        console.log( '成功' );
-      }
+      () => {  }
     );
   }
 
