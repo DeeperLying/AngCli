@@ -9,6 +9,8 @@ export class GetAppUtil {
   private queryTextUrl = 'http://test.api.snsports.cn/api/content/phone/'; // GetBMMatchListByKeyword.json?pageNum=1&keyword=%E5%8D%A0&status=3&device=phone&appVersion=3.0.5
   private queryPassportUrl = 'http://test.api.snsports.cn/api_passport/';
   private appVersion = '3.0.5';
+  private wxAppid = 'wx40213ea7f75a4207';
+  private appsecret = 'c0a0c00ec1b2bbcbe4aa59e439820dbb';
   public paramJoin: string;
 
   constructor () {}

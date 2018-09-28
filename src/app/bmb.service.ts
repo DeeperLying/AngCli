@@ -21,7 +21,8 @@ export class BmbService {
     );
   }
   public postDatas( api: string, param: any ): Observable<any> {
-    const url = this.util.urlPostMontage( api );
+    // const url = this.util.urlPostMontage( api );
+    const url = 'https://api.weixin.qq.com/cgi-bin/component/api_create_preauthcode?component_access_token=wx40213ea7f75a4207';
     return this.http.post( url, param);
   }
 }

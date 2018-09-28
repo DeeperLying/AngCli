@@ -59,5 +59,4 @@ export class BmMatchLoginComponent implements OnInit {
       () => {  }
     );
   }
-
 }
